@@ -122,22 +122,25 @@
                 <div class="table-header-title"><i class="fa-solid fa-list-ul"></i> Solicitudes Recibidas Recientemente</div>
             </div>
             
-            <table class="crm-table">
-                <thead>
-                    <tr>
-                        <th>Paciente</th>
-                        <th>Contacto</th>
-                        <th>Interés / Tratamiento</th>
-                        <th>Clínica / Llamar</th>
-                        <th>Calificación</th>
-                        <th>Estado</th>
-                        <th>Acción Rápida</th>
-                    </tr>
-                </thead>
-                <tbody id="leads-table-body">
-                    <!-- Los leads se inyectan dinámicamente -->
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="crm-table">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Contacto</th>
+                            <th>Fecha / Hora</th>
+                            <th>Interés / Tratamiento</th>
+                            <th>Clínica / Llamar</th>
+                            <th>Calificación</th>
+                            <th>Estado</th>
+                            <th>Acción Rápida</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-table-body">
+                        <!-- Los leads se inyectan dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 
@@ -275,7 +278,7 @@
             if (state.leads.length === 0) {
                 tbody.innerHTML = `
                     <tr>
-                        <td colspan="7" style="text-align: center; color: var(--crm-text-muted); padding: 50px;">
+                        <td colspan="8" style="text-align: center; color: var(--crm-text-muted); padding: 50px;">
                             <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; margin-bottom: 12px; display: block; color: var(--crm-text-muted);"></i>
                             No hay leads registrados aún. Completa el flujo de chat en la web para sincronizar.
                         </td>
@@ -295,11 +298,13 @@
                 tr.innerHTML = `
                     <td>
                         <div style="font-weight: 700; color: var(--crm-text-white);">${lead.name}</div>
-                        <div style="font-size: 0.75rem; color: var(--crm-text-muted);">${lead.date}</div>
                     </td>
                     <td>
                         <div style="font-weight: 500;">${lead.phone}</div>
                         <div style="font-size: 0.75rem; color: var(--crm-text-muted);">${lead.email}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 500; color: var(--crm-text-white);">${lead.date}</div>
                     </td>
                     <td>
                         <div style="font-weight: 600; color: var(--crm-text-white);">${lead.treatment}</div>
@@ -442,7 +447,7 @@
                 location: location,
                 timePref: timePref,
                 isPrioritary: treatmentObj.prio,
-                date: "Ahora mismo",
+                date: new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit" }) + " " + new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit", second: "2-digit" }),
                 status: "Pendiente"
             };
             

@@ -390,7 +390,7 @@
     // Finalizar y guardar en localStorage para que el CRM lea
     function finalizeReservation() {
         widgetState.currentLead.id = "lead_" + Date.now();
-        widgetState.currentLead.date = "Ahora mismo";
+        widgetState.currentLead.date = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit" }) + " " + new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
         const newLead = { ...widgetState.currentLead };
 
