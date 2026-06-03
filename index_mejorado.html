@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Dobleese | Diseño de Sonrisa y Tecnología 3D</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles_mejorado.css">
+    <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+
+    <!-- ===================================================================
+         NAVIGATION BAR (Glassmorphism)
+         =================================================================== -->
+    <nav class="premium-nav" id="main-nav">
+        <div class="nav-logo">
+            <img src="https://dobleese.es/wp-content/uploads/2024/09/logo-dobleese.png" alt="Dobleese" class="nav-logo-img">
+        </div>
+        <div class="nav-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#tratamientos">Tratamientos</a>
+            <a href="#tecnologia">Tecnología 3D</a>
+            <a href="#testimonios">Casos Reales</a>
+            <a href="#faqs">Preguntas</a>
+        </div>
+        <button class="nav-cta" id="nav-cta-cita">
+            <i class="fa-regular fa-calendar-check"></i> Cita Digital Gratis
+        </button>
+    </nav>
+
+    <!-- ===================================================================
+         HERO SECTION (Premium layout)
+         =================================================================== -->
+    <section class="hero-section" id="inicio">
+        <div class="glow-bg"></div>
+        <div class="hero-content">
+            <div class="hero-tag"><i class="fa-solid fa-sparkles"></i> Pioneros en Odontología 3D en Sevilla</div>
+            <h1>Tu sonrisa, diseñada con <br><span>precisión digital</span>.</h1>
+            <p>Fusionamos la excelencia clínica con tecnología de vanguardia para realizar tratamientos dentales rápidos, no invasivos y predecibles. Escáner intraoral 3D en primera visita sin moldes molestos.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" id="hero-cta-cita">
+                    <i class="fa-regular fa-calendar-check"></i> Diagnóstico Gratuito
+                </button>
+                <a href="#tratamientos" class="btn-secondary">Explorar Especialidades</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="hero-circle-backdrop"></div>
+            <!-- Floating badge 1 -->
+            <div class="hero-floating-badge badge-1">
+                <div class="badge-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <span>Sin moldes tradicionales</span>
+            </div>
+            
+            <!-- Main visual card with glassmorphism (Slideshow) -->
+            <div class="hero-main-card">
+                <img src="happy_patient.png" alt="Paciente Satisfecho Dobleese" class="hero-patient-img active">
+                <img src="happy_patient_2.png" alt="Paciente Satisfecho Dobleese" class="hero-patient-img">
+                <img src="happy_patient_3.png" alt="Paciente Satisfecho Dobleese" class="hero-patient-img">
+                <img src="happy_patient_4.png" alt="Paciente Satisfecho Dobleese" class="hero-patient-img">
+            </div>
+
+            <!-- Floating badge 2 -->
+            <div class="hero-floating-badge badge-2">
+                <div class="badge-icon"><i class="fa-solid fa-star"></i></div>
+                <span>Tecnología 3D Avanzada</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         STATS COUNTER BAR
+         =================================================================== -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Gabinetes Avanzados</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">4.8+</div>
+            <div class="stat-label">Valoración Google</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Precisión Digital</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Años de Cuidado</div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         SECTION: EXCLUSIVE ADVANTAGES (Glassmorphic advantages)
+         =================================================================== -->
+    <section class="section" id="ventajas">
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Ventajas Exclusivas</div>
+            <h2>En nuestra clínica, te lo ponemos fácil</h2>
+            <p>Queremos que tu experiencia sea cómoda y sin barreras desde el primer momento en nuestras clínicas de Sevilla.</p>
+        </div>
+
+        <div class="advantages-grid">
+            <!-- Advantage 1 -->
+            <div class="advantage-card">
+                <div class="adv-icon">1</div>
+                <h3>1ª Visita Digital Gratis</h3>
+                <p>Estudio radiográfico panorámico de alta definición, escáner intraoral 3D y diagnóstico completo sin coste ni compromiso.</p>
+            </div>
+
+            <!-- Advantage 2 -->
+            <div class="advantage-card">
+                <div class="adv-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <h3>Financiación Flexible</h3>
+                <p>Planes de pago personalizados y cómodos de hasta 60 meses para que puedas cuidar de tu salud dental sin preocupaciones.</p>
+            </div>
+
+            <!-- Advantage 3 -->
+            <div class="advantage-card">
+                <div class="adv-icon"><i class="fa-solid fa-square-parking"></i></div>
+                <h3>Parking Concertado Gratis</h3>
+                <p>Olvídate del coche. Disponemos de parking concertado gratuito para todos nuestros pacientes de Sevilla y Dos Hermanas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: TREATMENTS (Contrast Layout)
+         =================================================================== -->
+    <section class="section light" id="tratamientos">
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Nuestras Especialidades</div>
+            <h2>Odontología especializada y de alta estética</h2>
+            <p>Resolvemos problemas funcionales y estéticos con microcirugía y diseño de sonrisa avanzado en Sevilla.</p>
+        </div>
+
+        <div class="treatments-grid">
+            <!-- Card 1 -->
+            <div class="treatment-glass-card">
+                <div class="card-icon-wrap"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Estética y Carillas</h3>
+                <p>Recupera la luz de tu rostro con carillas de composite o porcelana ultrafinas. Diseñamos digitalmente el tamaño y tono perfecto de tu sonrisa.</p>
+                <a href="#" class="card-action-link">Saber más <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <!-- Card 2 (Featured Invisalign) -->
+            <div class="treatment-glass-card featured">
+                <div class="card-icon-wrap"><i class="fa-solid fa-teeth-open"></i></div>
+                <h3>Invisalign® (Invisible)</h3>
+                <p>Alinea tus dientes cómodamente con férulas transparentes. Planificamos tu evolución por ordenador en 3D para que veas el resultado antes de empezar.</p>
+                <a href="#" class="card-action-link">Saber más <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="treatment-glass-card">
+                <div class="card-icon-wrap"><i class="fa-solid fa-tooth"></i></div>
+                <h3>Implantes Inmediatos</h3>
+                <p>Soluciones permanentes en pocas horas. Colocamos implantes mediante cirugía guiada por ordenador, reduciendo drásticamente las molestias posteriores.</p>
+                <a href="#" class="card-action-link">Saber más <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: TECHNOLOGY SHOWCASE (Advanced Tech)
+         =================================================================== -->
+    <section class="section" id="tecnologia">
+        <div class="glow-bg" style="right: 10%; top: 20%;"></div>
+        <div class="tech-grid">
+            <div class="tech-image-wrap">
+                <img src="https://dobleese.es/wp-content/uploads/2024/10/Microscopios-de-alta-magnificacion-dobleese-sevilla.jpg" alt="Microscopios de alta magnificación">
+                <div class="tech-img-overlay">
+                    <div class="tech-img-title">Microscopio Operatorio Avanzado</div>
+                </div>
+            </div>
+
+            <div class="tech-content">
+                <div class="section-subtitle">Tecnología de Vanguardia</div>
+                <h3>La precisión milimétrica que marca la diferencia</h3>
+                <p>En Dobleese somos pioneros en la incorporación de microscopios operatorios de alta magnificación y tecnología láser. Esto nos permite cuidar al máximo el tejido sano, realizar cirugías mínimamente invasivas y garantizar acabados perfectos en carillas e implantes.</p>
+                
+                <div class="tech-features-list">
+                    <div class="tech-feature-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="tech-feature-text">
+                            <strong>Tratamiento guiado por microscopio</strong>
+                            Aumenta hasta 20 veces la visión de los detalles para máxima precisión.
+                        </div>
+                    </div>
+                    <div class="tech-feature-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="tech-feature-text">
+                            <strong>Gabinete Dental Premium</strong>
+                            Instalaciones ergonómicas que garantizan tu relajación y confort absoluto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: PREMIUM FACILITIES
+         =================================================================== -->
+    <section class="section" id="instalaciones">
+        <div class="glow-bg" style="left: -10%; bottom: 20%;"></div>
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Instalaciones</div>
+            <h2>Espacios diseñados para tu relax y salud</h2>
+            <p>Nuestras clínicas en Sevilla (Triana) y Dos Hermanas combinan comodidad y tecnología 3D para tu máxima tranquilidad.</p>
+        </div>
+
+        <div class="facilities-grid">
+            <!-- Facility 1 -->
+            <div class="facility-card">
+                <div class="facility-img-wrap">
+                    <img src="https://dobleese.es/wp-content/uploads/2024/11/DSC02131.jpg" alt="Recepción Dobleese">
+                </div>
+                <div class="facility-info">
+                    <h4>Recepción y Espera Premium</h4>
+                </div>
+            </div>
+
+            <!-- Facility 2 -->
+            <div class="facility-card">
+                <div class="facility-img-wrap">
+                    <img src="https://dobleese.es/wp-content/uploads/2024/11/DSC02147.jpg" alt="Gabinete Dental Dobleese">
+                </div>
+                <div class="facility-info">
+                    <h4>Gabinetes de Tratamiento 3D</h4>
+                </div>
+            </div>
+
+            <!-- Facility 3 -->
+            <div class="facility-card">
+                <div class="facility-img-wrap">
+                    <img src="https://dobleese.es/wp-content/uploads/2024/11/final_DSC02108.jpg" alt="Clínica Dobleese Exterior">
+                </div>
+                <div class="facility-info">
+                    <h4>Exterior de Acceso Directo</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: CLINICAL LEADERSHIP / TEAM
+         =================================================================== -->
+    <section class="section" id="equipo">
+        <div class="glow-bg" style="right: 5%; bottom: 10%;"></div>
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Dirección Médica</div>
+            <h2>Líderes en odontología y alta estética</h2>
+            <p>Conoce a los doctores fundadores que dirigen y supervisan cada tratamiento en Dobleese.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Doctor 1 -->
+            <div class="team-card">
+                <img src="https://dobleese.es/wp-content/uploads/2024/09/mejor-clinica-dental-sevilla-450x450-1.jpg" alt="Dr. Rafael Martínez-Sahuquillo" class="team-avatar">
+                <div class="team-info">
+                    <h3>Dr. Rafael Martínez-Sahuquillo</h3>
+                    <div class="team-role">Co-Director Médico | Implantes y Encías</div>
+                    <p>Especialista de gran prestigio en regeneración de hueso y cirugía de encías. Responsable del área quirúrgica avanzada de Dobleese.</p>
+                </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="team-card">
+                <img src="https://dobleese.es/wp-content/uploads/2024/09/estetica-dental-sevilla-200x200.jpg" alt="Dra. Laura Martínez-Sahuquillo" class="team-avatar">
+                <div class="team-info">
+                    <h3>Dra. Laura Martínez-Sahuquillo</h3>
+                    <div class="team-role">Co-Directora Médica | Estética e Invisalign</div>
+                    <p>Ortodoncista certificada Diamond Provider de Invisalign y experta en diseño digital de sonrisa con carillas de composite y porcelana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: TESTIMONIALS & CASES (Antes y Después)
+         =================================================================== -->
+    <section class="section cases-section" id="testimonios">
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Casos Reales</div>
+            <h2>Transformaciones reales de nuestros pacientes</h2>
+            <p>El cambio de vida que empieza con una sonrisa sana, segura y radiante.</p>
+        </div>
+
+        <div class="cases-slider">
+            <!-- Caso 1 -->
+            <div class="portfolio-card">
+                <img src="testimonial_juan.png" alt="Testimonio de Juan Ramón">
+                <div class="portfolio-info">
+                    <q>"Si llego a saber que esto iba a ir así de bien, me lo hubiese hecho mucho antes. La planificación en 3D fue clave."</q>
+                    <strong>Juan Ramón — Paciente de Invisalign</strong>
+                </div>
+            </div>
+
+            <!-- Caso 2 -->
+            <div class="portfolio-card">
+                <img src="testimonial_marta.png" alt="Testimonio de Marta">
+                <div class="portfolio-info">
+                    <q>"Quería lucir la mejor de las sonrisas para el día de mi boda. El diseño digital de sonrisa superó mis expectativas."</q>
+                    <strong>Marta — Paciente de Estética Dental</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: FAQ ACCORDION
+         =================================================================== -->
+    <section class="section" id="faqs">
+        <div class="section-title-wrap">
+            <div class="section-subtitle">Resuelve tus dudas</div>
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="accordion-wrap">
+            <!-- FAQ 1 -->
+            <div class="premium-accordion-card">
+                <div class="accordion-trigger">
+                    ¿En qué consiste la primera visita de diagnóstico?
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>En tu primera visita realizamos una toma de registros completa mediante escáner intraoral 3D (sin pastas molestas), radiografía panorámica de alta definición y un estudio fotográfico. Posteriormente, te explicamos el diagnóstico en una sala privada y te entregamos un plan de tratamiento detallado junto con su presupuesto cerrado.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="premium-accordion-card">
+                <div class="accordion-trigger">
+                    ¿Puedo financiar la totalidad de mi tratamiento dental?
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Sí, por supuesto. Contamos con planes de financiación personalizados de hasta 60 meses con condiciones muy ventajosas. Nuestras coordinadoras de tratamiento se encargarán de gestionar todo el proceso contigo para que elijas la cuota mensual que te resulte más cómoda.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="premium-accordion-card">
+                <div class="accordion-trigger">
+                    ¿Disponen de aparcamiento concertado para los pacientes?
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Sí, disponemos de convenios con parkings de la zona tanto en Sevilla (Plaza de Cuba / Los Maristas) como en Dos Hermanas (Parking Nuestra Señora del Carmen) para que aparcar al acudir a tu cita sea totalmente gratuito y cómodo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: CALL TO ACTION
+         =================================================================== -->
+    <section class="cta-section">
+        <div class="glow-bg" style="left: 30%; top: 10%;"></div>
+        <div class="cta-glass-card">
+            <h2>Transforma tu sonrisa hoy mismo</h2>
+            <p>Agenda ahora tu primera consulta de diagnóstico digital sin ningún tipo de coste ni compromiso. Descubre lo que la odontología 3D puede hacer por ti.</p>
+            <button class="btn-primary" id="footer-cta-cita">
+                <i class="fa-regular fa-calendar-check"></i> Reservar Diagnóstico Gratuito
+            </button>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         FOOTER
+         =================================================================== -->
+    <footer class="premium-footer">
+        <img src="https://dobleese.es/wp-content/uploads/2024/09/logo-dobleese.png" alt="Dobleese" class="footer-logo">
+        <p>© 2026 Clínica Dental Dobleese. Todos los derechos reservados. Tecnología e Innovación Dental.</p>
+    </footer>
+
+    <!-- INJECT CHATBOT WIDGET -->
+    <script src="widget.js"></script>
+
+    <!-- Local logic for scrolled navbar and interactive FAQs -->
+    <script>
+        // Cambiar opacidad de la barra de navegación al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Toggle para preguntas frecuentes
+        const triggers = document.querySelectorAll('.accordion-trigger');
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const card = trigger.parentElement;
+                
+                // Cerrar otros
+                document.querySelectorAll('.premium-accordion-card').forEach(c => {
+                    if (c !== card) c.classList.remove('active');
+                });
+                
+                card.classList.toggle('active');
+            });
+        });
+
+        // Vincular clics de botones adicionales al widget
+        document.getElementById('nav-cta-cita').addEventListener('click', () => {
+            if (window.openDobleeseChat) window.openDobleeseChat();
+        });
+        document.getElementById('hero-cta-cita').addEventListener('click', () => {
+            if (window.openDobleeseChat) window.openDobleeseChat();
+        });
+        document.getElementById('footer-cta-cita').addEventListener('click', () => {
+            if (window.openDobleeseChat) window.openDobleeseChat();
+        });
+
+        // Rotación de imágenes de cabecera (Slideshow)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-patient-img');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        if (slides.length > 1) {
+            setInterval(nextSlide, 4500); // Rotar cada 4.5 segundos
+        }
+    </script>
+
+    <!-- DEMO CONTROL SWITCHER -->
+    <div class="demo-switcher">
+        <span class="demo-tag"><span class="pulse-dot"></span> Demo</span>
+        <a href="crm.html" target="_blank">🖥️ Abrir CRM Recepción</a>
+        <span class="demo-sep">|</span>
+        <a href="index.html">🔙 Ver Web Original</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobleese CRM - Panel de Recepción y Control de Citas</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles_crm.css">
+</head>
+<body>
+    <!-- Glow backgrounds for the dashboard -->
+    <div class="glow-bg" style="top: 10%; left: 5%;"></div>
+    <div class="glow-bg" style="bottom: 5%; right: 5%;"></div>
+
+    <!-- ===================================================================
+         BARRA LATERAL (Sidebar)
+         =================================================================== -->
+    <aside class="crm-sidebar">
+        <div>
+            <div class="sidebar-logo">
+                <div class="logo-dot"></div>
+                <span>Dobleese CRM</span>
+            </div>
+            
+            <div class="sidebar-menu">
+                <button class="menu-item active">
+                    <i class="fa-solid fa-address-book"></i> Citas Recibidas
+                </button>
+                <button class="menu-item" onclick="alert('Funcionalidad de configuración e integración disponible en la versión comercial final.')">
+                    <i class="fa-solid fa-circle-nodes"></i> Integraciones
+                </button>
+                <button class="menu-item" onclick="alert('Funcionalidad de analítica avanzada disponible en la versión comercial final.')">
+                    <i class="fa-solid fa-chart-pie"></i> Estadísticas
+                </button>
+            </div>
+
+            <!-- DEMO VIEWS MENU -->
+            <div class="sidebar-demo-sec">
+                <div class="sidebar-demo-title">Demo - Vista Cliente</div>
+                <a href="index.html" target="_blank" class="demo-link-item">
+                    <i class="fa-solid fa-globe"></i> Web Original
+                </a>
+                <a href="index_mejorado.html" target="_blank" class="demo-link-item">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Web Premium
+                </a>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <div class="sidebar-box-title">Eficiencia del Staff</div>
+            <div class="sidebar-stat">
+                <span>Llamadas Ahorradas</span>
+                <strong id="sidebar-calls-saved">0</strong>
+            </div>
+            <div class="sidebar-stat">
+                <span>COI Recuperado</span>
+                <strong id="sidebar-coi-saved" style="color: var(--crm-success);">0 €</strong>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===================================================================
+         CUERPO PRINCIPAL (Main Dashboard)
+         =================================================================== -->
+    <main class="crm-main">
+        <div class="glow-bg" style="top: -20%; right: -20%;"></div>
+        <div class="glow-bg" style="bottom: -20%; left: -20%;"></div>
+        
+        <!-- Cabecera -->
+        <div class="crm-header">
+            <div class="crm-header-title">
+                <h1>Panel de Citas e IA de Recepción</h1>
+                <p>Gestión y calificación de leads en tiempo real capturados desde la web dobleese.es</p>
+            </div>
+            
+            <div class="crm-status-pill">
+                <div class="pulse-dot"></div>
+                <span>Base de Datos Sincronizada</span>
+            </div>
+        </div>
+
+        <!-- Consola del Presentador (Simulador de Tráfico) -->
+        <div class="sim-console">
+            <div class="sim-console-title">
+                <i class="fa-solid fa-screwdriver-wrench"></i> Consola del Presentador (Simulador de Citas)
+            </div>
+            <div class="sim-btn-group">
+                <button class="sim-btn" id="btn-sim-lead"><i class="fa-solid fa-circle-plus"></i> Simular Cita Web (Tráfico)</button>
+                <button class="sim-btn clear" id="btn-sim-clear"><i class="fa-solid fa-trash-can"></i> Limpiar Registro</button>
+                <button class="sim-btn clear" id="btn-sim-reset-stats"><i class="fa-solid fa-rotate-left"></i> Cargar Datos Iniciales</button>
+            </div>
+        </div>
+
+        <!-- Fila de Tarjetas de Indicadores (KPIs) -->
+        <div class="kpi-row">
+            <div class="kpi-box revenue">
+                <div class="kpi-label">Ingresos Recuperados (COI)</div>
+                <div class="kpi-number" id="kpi-revenue">0 €</div>
+                <div class="kpi-desc"><i class="fa-solid fa-circle-up" style="color:var(--crm-success);"></i> Fuga de Invisalign/Implantes evitada</div>
+            </div>
+            <div class="kpi-box leads">
+                <div class="kpi-label">Citas Capturadas</div>
+                <div class="kpi-number" id="kpi-leads-count">0</div>
+                <div class="kpi-desc"><i class="fa-solid fa-robot" style="color:var(--crm-primary);"></i> Gestionadas por el Asistente AI</div>
+            </div>
+            <div class="kpi-box hours">
+                <div class="kpi-label">Tiempo Ahorrado al Staff</div>
+                <div class="kpi-number" id="kpi-hours-saved">0 h</div>
+                <div class="kpi-desc"><i class="fa-solid fa-clock" style="color:var(--crm-warning);"></i> Ahorro en llamadas rutinarias</div>
+            </div>
+            <div class="kpi-box conv">
+                <div class="kpi-label">Tasa de Agendado</div>
+                <div class="kpi-number" id="kpi-conv-rate">94.2%</div>
+                <div class="kpi-desc"><i class="fa-solid fa-bolt" style="color:var(--crm-info);"></i> Conversión de visitas a citas completas</div>
+            </div>
+        </div>
+
+        <!-- Tabla de Leads -->
+        <div class="panel-card">
+            <div class="table-header-row">
+                <div class="table-header-title"><i class="fa-solid fa-list-ul"></i> Solicitudes Recibidas Recientemente</div>
+            </div>
+            
+            <table class="crm-table">
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Contacto</th>
+                        <th>Interés / Tratamiento</th>
+                        <th>Clínica / Llamar</th>
+                        <th>Calificación</th>
+                        <th>Estado</th>
+                        <th>Acción Rápida</th>
+                    </tr>
+                </thead>
+                <tbody id="leads-table-body">
+                    <!-- Los leads se inyectan dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Toast de Notificación Flotante -->
+    <div class="crm-toast" id="crm-toast-banner">
+        <div class="toast-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div class="toast-content">
+            <div class="toast-title" id="toast-title">Cita Prioritaria Capturada</div>
+            <div class="toast-desc" id="toast-desc">María García ha solicitado Invisalign en Sevilla - Triana</div>
+        </div>
+        <div class="toast-value" id="toast-value">+3.500 €</div>
+    </div>
+
+    <!-- Lógica del CRM -->
+    <script>
+        // Datos iniciales de simulación
+        const INITIAL_LEADS = [
+            {
+                id: "lead_1",
+                name: "María García",
+                phone: "+34 612 345 678",
+                email: "maria.garcia@gmail.com",
+                treatment: "Invisalign (Ortodoncia)",
+                value: 3500,
+                location: "Sevilla - Triana",
+                timePref: "Por la tarde",
+                isPrioritary: true,
+                date: "Hace 10 min",
+                status: "Pendiente"
+            },
+            {
+                id: "lead_2",
+                name: "Carlos Mendoza",
+                phone: "+34 654 987 321",
+                email: "carlos.mendoza@yahoo.es",
+                treatment: "Implante Dental",
+                value: 3500,
+                location: "Sevilla - Triana",
+                timePref: "Por la mañana",
+                isPrioritary: true,
+                date: "Hace 1 hora",
+                status: "Contactado"
+            },
+            {
+                id: "lead_3",
+                name: "Laura Gómez",
+                phone: "+34 678 123 456",
+                email: "laura.gomez@hotmail.com",
+                treatment: "Limpieza + Revisión",
+                value: 100,
+                location: "Dos Hermanas",
+                timePref: "Sin preferencia",
+                isPrioritary: false,
+                date: "Hace 3 horas",
+                status: "Pendiente"
+            },
+            {
+                id: "lead_4",
+                name: "Juan Castro",
+                phone: "+34 609 876 543",
+                email: "jcastro@gmail.com",
+                treatment: "Carillas Dentales",
+                value: 2500,
+                location: "Sevilla - Triana",
+                timePref: "Por la tarde",
+                isPrioritary: true,
+                date: "Ayer",
+                status: "Contactado"
+            }
+        ];
+
+        let state = {
+            leads: [],
+            stats: { revenue: 0, leadsCount: 0, hoursSaved: 0.0 }
+        };
+
+        // Audio chime (Web Audio API)
+        function playNotificationSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                osc.start(ctx.currentTime);
+                osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.1); // G5
+                osc.stop(ctx.currentTime + 0.35);
+            } catch (e) {
+                console.log("AudioContext bloqueado:", e);
+            }
+        }
+
+        // Cargar datos
+        function loadData() {
+            const saved = localStorage.getItem("dobleese_leads");
+            if (saved) {
+                state.leads = JSON.parse(saved);
+            } else {
+                state.leads = [...INITIAL_LEADS];
+                localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+            }
+            calculateStats();
+        }
+
+        function calculateStats() {
+            let revenue = 0;
+            let leadsCount = state.leads.length;
+            let hoursSaved = leadsCount * 1.5;
+            state.leads.forEach(l => { revenue += l.value; });
+
+            state.stats = { revenue, leadsCount, hoursSaved };
+            renderDashboard();
+        }
+
+        // Renderizado de tabla y KPIs
+        function renderDashboard() {
+            const revenueFormatted = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(state.stats.revenue);
+            
+            document.getElementById("kpi-revenue").innerText = revenueFormatted;
+            document.getElementById("kpi-leads-count").innerText = state.stats.leadsCount;
+            document.getElementById("kpi-hours-saved").innerText = state.stats.hoursSaved.toFixed(1) + " h";
+            
+            document.getElementById("sidebar-calls-saved").innerText = state.stats.leadsCount;
+            document.getElementById("sidebar-coi-saved").innerText = revenueFormatted;
+
+            const tbody = document.getElementById("leads-table-body");
+            tbody.innerHTML = "";
+
+            if (state.leads.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: var(--crm-text-muted); padding: 50px;">
+                            <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; margin-bottom: 12px; display: block; color: var(--crm-text-muted);"></i>
+                            No hay leads registrados aún. Completa el flujo de chat en la web para sincronizar.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            [...state.leads].reverse().forEach(lead => {
+                const tr = document.createElement("tr");
+                const qualClass = lead.isPrioritary ? "gold" : "standard";
+                const qualText = lead.isPrioritary ? "⭐ Prioritario" : "Estándar";
+                
+                // Clases de estado
+                const statusClass = lead.status.toLowerCase() === "contactado" ? "contactado" : "pendiente";
+
+                tr.innerHTML = `
+                    <td>
+                        <div style="font-weight: 700; color: var(--crm-text-white);">${lead.name}</div>
+                        <div style="font-size: 0.75rem; color: var(--crm-text-muted);">${lead.date}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 500;">${lead.phone}</div>
+                        <div style="font-size: 0.75rem; color: var(--crm-text-muted);">${lead.email}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 600; color: var(--crm-text-white);">${lead.treatment}</div>
+                        <div style="font-size: 0.75rem; color: var(--crm-success); font-weight: 700;">+${lead.value} €</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 500;">${lead.location}</div>
+                        <div style="font-size: 0.75rem; color: var(--crm-primary); font-weight: 700;">Pref: ${lead.timePref}</div>
+                    </td>
+                    <td>
+                        <span class="priority-tag ${qualClass}">${qualText}</span>
+                    </td>
+                    <td>
+                        <select class="status-badge ${statusClass}" onchange="changeLeadStatus('${lead.id}', this)">
+                            <option value="Pendiente" ${lead.status === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
+                            <option value="Contactado" ${lead.status === 'Contactado' ? 'selected' : ''}>Contactado</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="action-group">
+                            <button class="crm-btn-action whatsapp" title="Contactar por WhatsApp" onclick="contactWhatsApp('${lead.phone}', '${lead.name}', '${lead.treatment}', '${lead.location}')">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
+                            <button class="crm-btn-action gmail" title="Enviar Correo de Cita" onclick="contactGmail('${lead.email}', '${lead.name}', '${lead.treatment}', '${lead.location}')">
+                                <i class="fa-regular fa-envelope"></i>
+                            </button>
+                            <button class="crm-btn-action delete" title="Eliminar Lead" onclick="deleteLead('${lead.id}')">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // WhatsApp trigger
+        window.contactWhatsApp = (phone, name, treatment, location) => {
+            const rawPhone = phone.replace(/[^0-9+]/g, '');
+            const text = encodeURIComponent(`Hola ${name}, te escribimos de Clínica Dental Dobleese para informarte de que hemos recibido tu solicitud de valoración de ${treatment} en nuestra clínica de ${location}. ¿Te viene bien hablar ahora para fijar tu diagnóstico gratuito?`);
+            const url = `https://api.whatsapp.com/send?phone=${rawPhone}&text=${text}`;
+            window.open(url, '_blank');
+        };
+
+        // Gmail trigger
+        window.contactGmail = (email, name, treatment, location) => {
+            const subject = encodeURIComponent(`Pre-reserva de cita: ${treatment} | Dobleese Clínica Dental`);
+            const body = encodeURIComponent(`Hola ${name},\n\nHemos recibido tu solicitud de consulta para ${treatment} en Dobleese ${location}.\n\nPara agendar tu consulta y diagnóstico completo de forma totalmente gratuita, indícanos por esta vía si prefieres que te llamemos por teléfono o respóndenos indicando las horas que mejor te vengan.\n\nAtentamente,\nEquipo de Recepción de Dobleese.`);
+            const url = `mailto:${email}?subject=${subject}&body=${body}`;
+            window.open(url, '_blank');
+        };
+
+        // Cambiar estado de lead
+        window.changeLeadStatus = (id, selectEl) => {
+            const lead = state.leads.find(l => l.id === id);
+            if (lead) {
+                lead.status = selectEl.value;
+                localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+                
+                // Actualizar estilo CSS
+                selectEl.className = `status-badge ${selectEl.value.toLowerCase()}`;
+                
+                showToastNotification(
+                    "Estado Actualizado",
+                    `Lead ${lead.name} marcado como ${lead.status}`,
+                    "OK",
+                    "var(--crm-info)"
+                );
+            }
+        };
+
+        // Eliminar lead
+        window.deleteLead = (id) => {
+            if (confirm("¿Seguro que deseas eliminar este registro?")) {
+                state.leads = state.leads.filter(l => l.id !== id);
+                localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+                calculateStats();
+            }
+        };
+
+        // Mostrar Notificación Flotante
+        function showToastNotification(title, desc, val, color) {
+            const toast = document.getElementById("crm-toast-banner");
+            document.getElementById("toast-title").innerText = title;
+            document.getElementById("toast-desc").innerText = desc;
+            
+            const badge = document.getElementById("toast-value");
+            badge.innerText = val;
+            badge.style.backgroundColor = color;
+            
+            toast.classList.add("active");
+            setTimeout(() => {
+                toast.classList.remove("active");
+            }, 4500);
+        }
+
+        // Escuchar cambios de localStorage en tiempo real (Sincronización multi-pestaña)
+        window.addEventListener("storage", () => {
+            const oldLength = state.leads.length;
+            loadData();
+            
+            // Si hay un lead nuevo, emitir alerta sonora y visual
+            if (state.leads.length > oldLength) {
+                const newLead = state.leads[state.leads.length - 1];
+                playNotificationSound();
+                showToastNotification(
+                    newLead.isPrioritary ? "⭐ Lead de Alta Prioridad Capturado" : "Nueva Reserva Recibida",
+                    `${newLead.name} solicita ${newLead.treatment}`,
+                    `+${newLead.value} €`,
+                    newLead.isPrioritary ? "var(--crm-warning)" : "var(--crm-success)"
+                );
+            }
+        });
+
+        // Eventos de la Consola del Simulador
+        document.getElementById("btn-sim-lead").addEventListener("click", () => {
+            const listNames = ["Andrés Lozano", "Patricia Herrera", "Manuel Solís", "Lucía Delgado", "Alberto Marín"];
+            const listTreatments = [
+                { name: "Invisalign (Ortodoncia)", val: 3500, prio: true },
+                { name: "Implante Dental", val: 3500, prio: true },
+                { name: "Carillas Dentales", val: 2500, prio: true },
+                { name: "Blanqueamiento Dental", val: 500, prio: false },
+                { name: "Revisión Bucal Completa", val: 100, prio: false }
+            ];
+            const listLocations = ["Dos Hermanas", "Sevilla - Triana"];
+            const listTime = ["Por la mañana", "Por la tarde", "Sin preferencia"];
+            
+            const name = listNames[Math.floor(Math.random() * listNames.length)];
+            const treatmentObj = listTreatments[Math.floor(Math.random() * listTreatments.length)];
+            const location = listLocations[Math.floor(Math.random() * listLocations.length)];
+            const timePref = listTime[Math.floor(Math.random() * listTime.length)];
+            
+            const newLead = {
+                id: "sim_" + Math.random().toString(36).substr(2, 9),
+                name: name,
+                phone: "+34 " + Math.floor(600000000 + Math.random() * 99999999),
+                email: name.toLowerCase().replace(" ", ".") + "@gmail.com",
+                treatment: treatmentObj.name,
+                value: treatmentObj.val,
+                location: location,
+                timePref: timePref,
+                isPrioritary: treatmentObj.prio,
+                date: "Ahora mismo",
+                status: "Pendiente"
+            };
+            
+            state.leads.push(newLead);
+            localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+            calculateStats();
+            
+            // Forzar disparo del alert y notificación en esta misma pestaña
+            playNotificationSound();
+            showToastNotification(
+                newLead.isPrioritary ? "⭐ Lead de Alta Prioridad Capturado" : "Nueva Reserva Recibida",
+                `${newLead.name} solicita ${newLead.treatment}`,
+                `+${newLead.value} €`,
+                newLead.isPrioritary ? "var(--crm-warning)" : "var(--crm-success)"
+            );
+        });
+
+        document.getElementById("btn-sim-clear").addEventListener("click", () => {
+            if (confirm("¿Quieres vaciar los leads cargados en la demo?")) {
+                state.leads = [];
+                localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+                calculateStats();
+            }
+        });
+
+        document.getElementById("btn-sim-reset-stats").addEventListener("click", () => {
+            state.leads = [...INITIAL_LEADS];
+            localStorage.setItem("dobleese_leads", JSON.stringify(state.leads));
+            calculateStats();
+        });
+
+        // Carga inicial
+        loadData();
+    </script>
+</body>
+</html>
