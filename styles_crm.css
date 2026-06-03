@@ -41,7 +41,7 @@ body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
     color: var(--crm-text-white);
-    min-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: 260px 1fr;
     overflow: hidden;
