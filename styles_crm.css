@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --crm-primary: #77bbc6;
+    --crm-primary: #4f9ea9;
     --crm-secondary: #0f172a;       /* Dark slate */
     --crm-bg: #f1f5f9;              /* Light slate */
     --crm-card: rgba(255, 255, 255, 0.75);
@@ -14,11 +14,11 @@
     --crm-text-white: #1e293b;
     --crm-text-muted: #64748b;
     
-    /* Estados */
-    --crm-success: #00d084;
-    --crm-warning: #fcb900;
-    --crm-danger: #cf2e2e;
-    --crm-info: #38bdf8;
+    /* Estados (Clinical dark-contrast versions) */
+    --crm-success: #16a34a;
+    --crm-warning: #d97706;
+    --crm-danger: #dc2626;
+    --crm-info: #0284c7;
     
     --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     --radius-md: 14px;
@@ -44,6 +44,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 260px 1fr;
+    grid-template-rows: 100vh;
     overflow: hidden;
     position: relative;
 }
@@ -72,7 +73,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
     box-shadow: 10px 0 40px rgba(0, 0, 0, 0.03);
     z-index: 10;
 }
@@ -173,7 +174,8 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    min-height: 0;
     position: relative;
     z-index: 1;
 }
@@ -459,15 +461,15 @@ body {
 }
 
 .status-badge.pendiente {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #f87171;
-    border-color: rgba(239, 68, 68, 0.2);
+    background-color: rgba(220, 38, 38, 0.08);
+    color: var(--crm-danger);
+    border-color: rgba(220, 38, 38, 0.2);
 }
 
 .status-badge.contactado {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #34d399;
-    border-color: rgba(16, 185, 129, 0.2);
+    background-color: rgba(22, 163, 74, 0.08);
+    color: var(--crm-success);
+    border-color: rgba(22, 163, 74, 0.2);
 }
 
 /* Badge Qualification */
@@ -482,15 +484,15 @@ body {
 }
 
 .priority-tag.gold {
-    background-color: rgba(252, 185, 0, 0.12);
+    background-color: rgba(217, 119, 6, 0.08);
     color: var(--crm-warning);
-    border: 1px solid rgba(252, 185, 0, 0.25);
+    border: 1px solid rgba(217, 119, 6, 0.2);
 }
 
 .priority-tag.standard {
-    background-color: rgba(119, 187, 198, 0.12);
+    background-color: rgba(79, 158, 169, 0.08);
     color: var(--crm-primary);
-    border: 1px solid rgba(119, 187, 198, 0.25);
+    border: 1px solid rgba(79, 158, 169, 0.2);
 }
 
 /* CRM Action Buttons */
